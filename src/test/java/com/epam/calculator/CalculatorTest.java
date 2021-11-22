@@ -3,6 +3,8 @@ package com.epam.calculator;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class CalculatorTest {
 
     @Test
@@ -54,26 +56,47 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testMultiplyShouldMultiplyWhenNumbersInteger(){
+    public void testMultiplyShouldMultiplyWhenNumbersPositive(){
         //given
         Calculator calculator = new Calculator();
 
         //when
-        double product = calculator.multiply(7,5);
+        int product = calculator.multiply(7,5);
 
         //then
         Assert.assertEquals(35, product);
     }
 
     @Test
-    public void testMultiplyShouldMultiplyWhenNumbersFraction(){
+    public void testMultiplyShouldMultiplyWhenNumbersNegative(){
         //given
         Calculator calculator = new Calculator();
 
-        //when
-        double product = calculator.multiply(7.5, 3.9);
+        int product = calculator.multiply(-7,-5);
 
         //then
         Assert.assertEquals(35, product);
+    }
+
+    @Test
+    public void testMultiplyShouldMultiplyWhenOneNumberNegative(){
+        //given
+        Calculator calculator = new Calculator();
+
+        int product = calculator.multiply(-8,5);
+
+        //then
+        Assert.assertEquals(-40, product);
+    }
+
+    @Test
+    public void testDivideShouldDivideWhenNumbersPositive(){
+        //given
+        Calculator calculator = new Calculator();
+
+        double quotient = (double)calculator.divide(6, 5);
+
+        //then
+        Assert.assertEquals(1.2, quotient, 1e-3);
     }
 }
