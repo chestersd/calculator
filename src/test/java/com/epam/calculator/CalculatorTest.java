@@ -99,4 +99,27 @@ public class CalculatorTest {
         //then
         Assert.assertEquals(1.2, quotient, 1e-3);
     }
+
+    @Test
+    public void testDivideShouldDivideWhenNumbersNegative(){
+        //given
+        Calculator calculator = new Calculator();
+
+        double quotient = (double)calculator.divide(-7, -4);
+
+        //then
+        Assert.assertEquals(1.75, quotient, 1e-3);
+    }
+
+    @Test
+    public void testDivideShouldDivideWhenOneNumberNegative(){
+        //given
+        Calculator calculator = new Calculator();
+
+        double quotient = (double)calculator.divide(-70, 7);
+
+        //then
+        Assert.assertEquals(-10, quotient, 1e-3);
+    }
 }
+
